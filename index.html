@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <p>
+        <button class="btn btn-primary btn-lg" id="alert">Alert Dialog</button>
+        <button class="btn btn-danger btn-lg" id="confirm">Confirm Dialog</button>
+        <button class="btn btn-warning btn-lg" id="prompt">Prompt Dialog</button>
+        <button class="btn btn-info btn-lg" id="custom">Custom Dialog</button>
+    </p>
+
+
+
+    <script src="asset/js/jquery-3.6.3.min.js"></script>
+    <script src="asset/js/bootbox.min.js"></script>
+    <script src="asset/js/bootbox.locales.min.js"></script>
+    <script src="asset/js/bootbox.all.min.js"></script>
+    <script src="asset/js/bootstrap.bundle.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+
+        });
+    </script>
+    <script>
+        $('#alert').on('click', function () {
+            bootbox.alert({
+                size: "large",
+                title: "Alert Dialog",
+                message: "Your message here",
+                callback: function () { }
+            })
+        })
+    </script>
+    <script>
+        $('#confirm').on('click', function () {
+            bootbox.confirm({
+                size: "medium",
+                message: "<b>Are you sure</b> to delete this entry?",
+                callback: function (result) {
+                    bootbox.alert('Closed');
+                }
+            })
+        })
+    </script>
+    <script>
+        $('#prompt').on('click', function () {
+            bootbox.prompt({
+                size: "small",
+                title: "What is your name",
+                callback: function (result) {
+                    bootbox.alert('result');
+                }
+            })
+        })
+    </script>
+
+    <script>
+        $('#custom').on('click', function () {
+            bootbox.dialog({
+                title: 'Custom Dialog Example',
+                message: '<p>This dialog demonsteates many of the options availablel when using the bootbox library</p>',
+                size: "large",
+                onescape: true,
+                backdrop: true,
+                buttons: {
+                    fee: {
+                        label: 'jQuery',
+                        className: 'btn-primary',
+                        callback: function () { }
+                    },
+                    fi: {
+                        label: 'Script',
+                        className: 'btn-info',
+                        callback: function () { }
+                    },
+                    fo: {
+                        label: 'Bootstrap',
+                        className: 'btn-success',
+                        callback: function () { }
+                    }, fum: {
+                        label: '.Net',
+                        className: 'btn-danger',
+                        callback: function () { }
+                    }
+                }
+            })
+        })
+    </script>
+
+
+</html>
